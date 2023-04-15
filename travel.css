@@ -1,0 +1,18 @@
+.fa-house{
+    color: aliceblue;
+}
+
+.custom-height {
+    min-height: 100vh;
+    width: 100%;
+    margin-bottom: 100px;
+}
+  
+
+body.register-page {
+    background-color: #3498db !important;
+    color: #fff;
+}
+  
+  
+  
