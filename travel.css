@@ -7,8 +7,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
-
 /*   This is for the Nav-Bar   */
 header{
     position: fixed;
@@ -65,4 +63,19 @@ header{
     background: url('images/victoria_1.jpg');
     background-size: cover;
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2;
+    color: white;
+}
+
+section{
+    padding: 10% 19%;
+}
+
+.intro-text{
+    background-color: rgba(0, 0, 0, 0.219);
+    padding: 20px;
+    border-radius: 20px;
 }
