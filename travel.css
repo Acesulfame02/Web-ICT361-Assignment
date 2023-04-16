@@ -64,4 +64,5 @@ header{
     min-height: 100vh;
     background: url('images/victoria_1.jpg');
     background-size: cover;
+    position: relative;
 }
