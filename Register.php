@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php 
     $page_title = "Register Page";
     include('includes/Header.php'); 
