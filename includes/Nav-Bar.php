@@ -7,7 +7,7 @@
     <li><a href="#">Places</a></li>
     <li><a href="#">Packages</a></li>
     <li><a href="#">Contact</a></li>
-    <li><a href="#">Login</a></li>
+    <li><a href="Login.php">Login</a></li>
   </ul>
 
   <div class="bx bx-menu" id="menu-icon"></div>

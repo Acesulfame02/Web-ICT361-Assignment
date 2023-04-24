@@ -64,8 +64,6 @@ header{
     background-size: cover;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
     gap: 2;
     color: white;
 }
@@ -79,3 +77,4 @@ section{
     padding: 20px;
     border-radius: 20px;
 }
+
