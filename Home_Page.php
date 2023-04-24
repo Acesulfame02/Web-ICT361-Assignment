@@ -8,7 +8,7 @@
     <div class="intro-text">
         <h1>Welcome to the Finnest Travel Site in Zambia.</h1>
         <p>
-            We offer services from taking you from different places in Zambia to
+            We offer services from taking you to different places in Zambia to
             hosting you in the best hotels and logdes in our beautiful country,
             Scroll down for more info on our offers. 
         </p>
