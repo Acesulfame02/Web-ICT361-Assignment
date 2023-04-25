@@ -91,3 +91,44 @@ footer{
 .main-content{
     display: flex;
 }
+
+.main-content .box{
+    flex-basis: 50%;
+    padding: 10px 20px;
+}
+
+.box h2{
+    font-size: 1.123rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.content{
+    margin: 20px 0 0 0;
+}
+
+.left .content .social{
+    margin: 20px 0 0 0;
+}
+
+.left .content p{
+    text-align: justify;
+}
+
+.left .content .social a{
+    padding: 0 2px;
+}
+
+.left .content .social a i{
+    height: 40px;
+    width: 40px;
+    background: #1a1a1a;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.left .content .social a i:hover{
+    background: #f12020;
+}

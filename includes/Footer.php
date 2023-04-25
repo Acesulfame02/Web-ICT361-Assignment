@@ -4,13 +4,8 @@
                     <h2>About Us</h2>
                     <div class="content">
                         <p>
-                            Welcome to our website, where we aim to provide you with the best travel experiences possible. Our team of travel experts has years of experience in the industry and is dedicated to creating unforgettable trips for our clients. Whether you're looking for a relaxing beach getaway or an adventurous mountain trek, we have the perfect package for you.
-
-                            We pride ourselves on our attention to detail and personalized service. Our team will work with you to create a custom itinerary that meets your specific needs and preferences. We believe that travel should be more than just a vacation - it should be an opportunity to learn, explore, and grow.
-
-                            In addition to our travel packages, we also offer a community for our members to connect and share their experiences. Our cost-sharing program allows members to split the costs of travel and accommodation, making it more affordable for everyone. We encourage our members to leave reviews and ratings for our tours and lodging facilities, so that others can benefit from their experiences.
-
-                            At our core, we are passionate travelers who believe that everyone should have the opportunity to explore the world. We hope that our website inspires you to take the first step towards your next adventure. Thank you for choosing us as your travel partner.
+                            The website provides personalized travel packages for various types of trips, including beach getaways and mountain treks, with a focus on attention to detail and personalized service. 
+                            They also have a community where members can connect and share experiences, and a cost-sharing program to make travel more affordable. The team is passionate about travel and encourages others to explore the world.
                         </p>
                         <div class="social">
                             <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -19,7 +14,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="center">
+                <div class="center box">
                     <h2>Address</h2>
                     <div class="content">
                         <div class="place">
