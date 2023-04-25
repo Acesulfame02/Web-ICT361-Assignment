@@ -1,5 +1,5 @@
 <?php 
-    $page_title = "Home Page";
+    $page_title = "Packages Page";
     include('includes/Header.php'); 
     include('includes/Nav-bar.php'); 
 ?>
