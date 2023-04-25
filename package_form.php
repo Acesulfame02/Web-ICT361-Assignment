@@ -27,7 +27,7 @@
                 <p>Location: Livingstone</p>
                 <p>Price: k800.00</p>
             </div>
-            <a href="https://www.w3schools.com/">Click here to buy package</a>
+            <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
      </div>
     <div class="package">
         <img src="images/img3.jpg" alt="nature image">
@@ -36,7 +36,7 @@
                 <p>Location: Kasama</p>
                 <p>Price: k700.00</p>
             </div>
-        <a href="https://www.w3schools.com/">Click here to buy package</a>
+            <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
     </div>
     <div class="package">
         <img src="images/img4.jpg" alt="nature image">
@@ -45,7 +45,7 @@
             <p>Location: Muchinga</p>
             <p>Price: k600.00</p>
         </div>
-        <a href="https://www.w3schools.com/">Click here to buy package</a>
+        <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
     </div>    
     <div class="package">
         <img src="images/img5.jpg" alt="nature image">
@@ -54,7 +54,7 @@
             <p>Location: Kasama</p>
             <p>Price: k500.00</p>
         </div>
-        <a href="https://www.w3schools.com/">Click here to buy package</a>
+        <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
     </div>
     <div class="package">
         <img src="images/img6.jpg" alt="nature image">
@@ -63,7 +63,7 @@
             <p>Location: Eastern province</p>
             <p>Price: k400.00</p>
         </div>
-        <a href="https://www.w3schools.com/">Click here to buy package</a>
+        <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
         </div>
     </div>          
 </div>
