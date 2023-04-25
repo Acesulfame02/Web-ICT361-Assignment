@@ -78,3 +78,16 @@ section{
     border-radius: 20px;
 }
 
+/* Footer Design is Here  */
+
+footer{
+    width: 100%;
+    background: #111;
+    color: white;
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+.main-content{
+    display: flex;
+}
