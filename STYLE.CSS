@@ -1,0 +1,106 @@
+/* Landing area styles */
+#landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  height: 400px;
+  position: relative;
+  margin-bottom: 30px;
+}
+  
+#landing-text {
+  text-align: center;
+  z-index: 1;
+}
+  
+#landing-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+#landing-text h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+  
+#landing-image {
+  background-image: url('images/img.jpg');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+/* CSS for large screens */
+#packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+  
+#images{
+  padding: 20px;
+  background-image: url('images/img1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.package {
+  border: 1px solid #000;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: 	rgba(255, 255, 255, 0.733);
+}
+  
+.package img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+  
+.caption {
+  margin-top: 10px;
+}
+  
+.package a {
+  display: block;
+  margin-top: 10px;
+}
+  
+/* CSS for medium screens */
+@media (max-width: 768px) {
+  #packages {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .package {
+    padding: 10px;
+  }
+
+  .caption {
+    margin-top: 5px;
+  }
+}
+  
+/* CSS for small screens */
+@media (max-width: 576px) {
+  #packages {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+  }
+
+  .package {
+    padding: 5px;
+  }
+
+  .caption {
+    margin-top: 3px;
+    font-size: 12px;
+  }
+}
+  
