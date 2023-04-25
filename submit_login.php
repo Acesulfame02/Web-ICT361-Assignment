@@ -22,36 +22,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch();
 
     // Check if user exists and is active
-if ($user) {
-    if ($user['is_active'] == 1) {
-        // Verify password
-        if (password_verify($password, $user['password'])) {
-
-            // Set session variables
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-
-            // Set cookie for username
-            setcookie('username', $user['username'], time() + (86400 * 30), "/"); // Cookie expires in 30 days
-
-            // Redirect to profile form
-            header('Location: profile_form.php');
-            exit();
+    if ($user) {
+        if ($user['is_active'] == 1) {
+            // Verify password
+            if (password_verify($password, $user['password'])) {
+            
+                // Set session variables
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+            
+                // Set cookie for username
+                setcookie('username', $user['username'], time() + (86400 * 30), "/"); // Cookie expires in 30 days
+            
+                // Redirect to profile form
+                header('Location: profile_form.php');
+                exit();
+            } else {
+                // Password is incorrect
+                header('Location: login.php?error=Invalid Password');
+                exit();
+            }
         } else {
-            // Password is incorrect
-            header('Location: login.php?error=Invalid Password');
+            // User is not active
+            header('Location: verification.php');
             exit();
         }
     } else {
-        // User is not active
-        header('Location: verification.php');
+        // User not found
+        header('Location: login.php?error=invalid_username');
         exit();
     }
-} else {
-    // User not found
-    header('Location: login.php?error=invalid_username');
-    exit();
-}
 }
 
 ?>

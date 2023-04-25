@@ -5,56 +5,65 @@
 ?>
 
 <?php
-session_start();
-// Check if user is already logged in
-if (isset($_SESSION['username'])) {
-  // User is already logged in, redirect to login page
-  header('Location: login.php');
-  exit;
+// Require database connection file
+require_once 'includes/dbConnect.php';
+
+// Get verification token from form submission
+$token = $_POST['token'];
+
+// Prepare SQL statement to get user with matching verification token
+$stmt = $conn->prepare("SELECT * FROM users WHERE verify_token = :token");
+
+// Bind parameters
+$stmt->bindParam(':token', $token);
+
+// Execute SQL statement
+$stmt->execute();
+
+// Fetch user data from database
+$user = $stmt->fetch();
+
+// Check if user exists and verification token is not expired
+if ($user && $user['verify_time'] > date('Y-m-d H:i:s')) {
+
+    // Update user's is_active field to 1
+    try {
+        $stmt = $conn->prepare("UPDATE users SET is_active = 1 WHERE username = :username");
+        $stmt->bindParam(':username', $user['username']);
+        $stmt->execute();
+
+        // Redirect to login page with success message
+        header('Location: login.php?success=Your account has been successfully verified. Please log in.');
+        exit();
+
+    } catch(PDOException $e) {
+        // Redirect to error page if database update fails
+        header('Location: error.php?error=' . $e->getMessage());
+        exit();
+    }
+
+} else {
+    // Generate new verification token and update database with new token and expiry time
+    $new_token = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 6);
+    $new_verify_time = date('Y-m-d H:i:s', strtotime('+20 minutes'));
+    
+    try {
+        $stmt = $conn->prepare("UPDATE users SET verify_token = :new_token, verify_time = :new_verify_time WHERE username = :username");
+        $stmt->bindParam(':new_token', $new_token);
+        $stmt->bindParam(':new_verify_time', $new_verify_time);
+        $stmt->bindParam(':username', $user['username']);
+        $stmt->execute();
+    } catch(PDOException $e) {
+        // Redirect to error page if database update fails
+        header('Location: error.php?error=' . $e->getMessage());
+        exit();
+    }
+
+    // Reload page with new verification token
+    header('Location: verification.php');
+    exit();
 }
-
-include 'includes/dbConnect.php';
-
-// Function to generate a new verification token
-function generateToken() {
-  $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  $token = '';
-  for ($i = 0; $i < 6; $i++) {
-    $index = rand(0, strlen($chars) - 1);
-    $token .= $chars[$index];
-  }
-  return $token;
-}
-
-if (isset($_POST['submit'])) {
-  // Get entered verification token from form
-  $token = $_POST['token'];
-  
-  // Get user info from database based on email
-  $email = $_SESSION['email'];
-  $stmt = $pdo->prepare('SELECT * FROM users WHERE email=:email');
-  $stmt->execute(['email' => $email]);
-  $user = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-  // Check if token is correct and not expired
-  $expireTime = strtotime('+30 minutes', strtotime($user['verify_time']));
-  if ($user['verify_token'] === $token && time() <= $expireTime) {
-    // Verification successful, update database and redirect to login page
-    $stmt = $pdo->prepare('UPDATE users SET is_active=1 WHERE email=:email');
-    $stmt->execute(['email' => $email]);
-    header('Location: login.php');
-    exit;
-  } else {
-    // Token is incorrect or expired, generate new token and update database
-    $newToken = generateToken();
-    $stmt = $pdo->prepare('UPDATE users SET verify_token=:token, verify_time=NOW() WHERE email=:email');
-    $stmt->execute(['token' => $newToken, 'email' => $email]);
-    $errorMsg = 'Invalid or expired token. A new verification token has been sent to your email.';
-  }
-}
-
 ?>
-
 
 <div class="container mt-5">
     <h1 class="text-center mb-5">Verification</h1>
@@ -70,5 +79,7 @@ if (isset($_POST['submit'])) {
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Submit</button>
     </form>
-  </div>
+</div>
+
+
 <?php include('includes/Footer.php'); ?>
