@@ -18,3 +18,15 @@ insert into packages(package_name, description, itnerary, inclusions, price, ima
 ('Victoria falls', 'amazing', 'most likely', 'fan', '800.00','images/img2.jpg');
 insert into packages(package_name, description, itnerary, inclusions, price, image_url) VALUES
 ('Samfya beach', 'amazing', 'most likely', 'fan', '700.00','images/img3.jpg');
+insert into packages(package_name, description, itnerary, inclusions, price, image_url) VALUES
+('Muchinga escarpment', 'amazing', 'most likely', 'fan', '700.00','images/img3.jpg');
+
+for admin page: 
+
+create table Admins(
+    admin_id varchar(6) primary key not null default '888888',
+    password varchar(255) not null default 'None'
+);
+
+insert into admins (admin_id,password) values ('123456','6004');
+select*from admins;
