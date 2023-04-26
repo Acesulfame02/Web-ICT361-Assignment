@@ -34,6 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Set cookie for username
                 setcookie('username', $user['username'], time() + (86400 * 30), "/"); // Cookie expires in 30 days
             
+                // Start the login session with 'loggedin' status
+                $_SESSION['loggedin'] = true;
+                
                 // Redirect to profile form
                 header('Location: profile_form.php');
                 exit();
