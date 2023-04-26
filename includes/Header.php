@@ -19,6 +19,9 @@
         <!--  Login-CSS  -->
         <link href="login.css" rel="stylesheet">
 
+        <!-- Register CSS -->
+        <link href="register.css" rel="stylesheet">
+
         <!-- BoxIcons  -->
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         
