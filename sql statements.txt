@@ -15,9 +15,6 @@ describe packages;
 //please change entered values to enable package proper description.
 
 insert into packages(package_name, description, itnerary, inclusions, price, image_url) VALUES
-('Victoria falls', 'amazing', 'most likely', 'fan', '5637.98','images/img');
-select*from packages;
-
-//do the most guys.
-
-update packages set image_url = 'images/img3.jpg' where package_id = '1';
+('Victoria falls', 'amazing', 'most likely', 'fan', '800.00','images/img2.jpg');
+insert into packages(package_name, description, itnerary, inclusions, price, image_url) VALUES
+('Samfya beach', 'amazing', 'most likely', 'fan', '700.00','images/img3.jpg');

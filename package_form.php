@@ -21,7 +21,9 @@
     </div>
     <div id="packages">
         <div class="package">
-            <img src="images/img2.jpg" alt="nature image">
+            <a href="package.php?id=1">
+                <img src="images/img2.jpg" alt="nature image">
+            </a>
             <div class="caption">
                 <h3>Victoria falls</h3>
                 <p>Location: Livingstone</p>
@@ -30,7 +32,7 @@
             <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
      </div>
     <div class="package">
-        <a href="package.php?id=1">
+        <a href="package.php?id=2">
             <img src="images/img3.jpg" alt="nature image">
         </a>
         <div class="caption">
