@@ -30,13 +30,15 @@
             <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
      </div>
     <div class="package">
-        <img src="images/img3.jpg" alt="nature image">
-            <div class="caption">
-                <h3>Samfya beach</h3>
-                <p>Location: Kasama</p>
-                <p>Price: k700.00</p>
-            </div>
-            <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
+        <a href="package.php?id=1">
+            <img src="images/img3.jpg" alt="nature image">
+        </a>
+        <div class="caption">
+            <h3>Samfya beach</h3>
+            <p>Location: Kasama</p>
+            <p>Price: k700.00</p>
+        </div>
+        <a href="<?php echo isset($_SESSION['loggedin']) ? 'profile_form.php' : 'Login.php'; ?>">Click here to buy package</a>
     </div>
     <div class="package">
         <img src="images/img4.jpg" alt="nature image">

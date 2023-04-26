@@ -1,0 +1,47 @@
+.package-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    margin-top: 60px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .package-info h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .package-info .description {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .package-info .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .package-info img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+.info-more{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    position: relative;
+}
+
+body{
+    background-color: black;
+}
+  

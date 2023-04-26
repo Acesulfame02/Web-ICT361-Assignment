@@ -12,6 +12,9 @@
 
         <!--  Packages  -->
         <link href="STYLE.css" rel="stylesheet">
+
+        <!--  Package detail --->
+        <link href="package.css" rel="stylesheet">
         
         <!--  Login-CSS  -->
         <link href="login.css" rel="stylesheet">

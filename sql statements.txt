@@ -1,0 +1,23 @@
+//this Assumes that you already have database clients on your device
+
+create table packages(
+    package_id int not null primary key auto_increment comment 'Primary key',
+    package_name varchar(255) not null default 'none' comment 'Name or title of the package',
+    description text not null default 'none' comment 'Brief description of the package',
+    itnerary text not null default 'none' comment 'Detailed itenerary of the package',
+    inclusions text not null default 'none' comment 'List features and inclusions included in the package',
+    price decimal(10,2) not null default '0.00' comment 'Price of package',
+    image_url varchar(255) not null default 'none' comment 'Url of the image loaction'
+);
+
+describe packages;
+
+//please change entered values to enable package proper description.
+
+insert into packages(package_name, description, itnerary, inclusions, price, image_url) VALUES
+('Victoria falls', 'amazing', 'most likely', 'fan', '5637.98','images/img');
+select*from packages;
+
+//do the most guys.
+
+update packages set image_url = 'images/img3.jpg' where package_id = '1';
