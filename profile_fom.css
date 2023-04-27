@@ -44,3 +44,9 @@
     height: 80%;
     background-color: #f1f1f146;
 }
+
+.images_data{
+    width: 200px;
+    height: 200px;
+    border-radius: 50px
+}
