@@ -1,0 +1,46 @@
+/* Profile Form Design Made by Aaron */
+
+.sidebar {
+    background-color: #f1f1f1;
+    width: 200px;
+    height: 80%;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    padding: 20px;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px; /* Add margin bottom to create space between elements */
+}
+
+.sidebar ul li:hover{
+    background-color: #3425;
+    border-radius: 10px;
+}
+
+  
+.sidebar ul li a {
+    display: block; /* Set the display property to block to make the link fill the parent element */
+    padding: 10px; /* Add padding to create space within the link */
+}
+  
+
+.profiler{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-height: 180vh;
+    background: url('images/thumb_victoria2.jpg');
+    background-size: cover;
+}
+
+.contenter {
+    margin-left: 220px;
+    padding: 20px;
+    top: 200px;
+    position: absolute; 
+    width: 80%;
+    height: 80%;
+    background-color: #f1f1f146;
+}

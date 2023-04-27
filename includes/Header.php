@@ -19,6 +19,9 @@
         <!--  Login-CSS  -->
         <link href="login.css" rel="stylesheet">
 
+        <!--  Profile-CSS  -->
+        <link href="profile_fom.css" rel="stylesheet">
+
         <!-- Register CSS -->
         <link href="register.css" rel="stylesheet">
 
