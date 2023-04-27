@@ -1,6 +1,8 @@
 function changeContent(page) {
     var title = document.getElementById('page-title');
     var content = document.getElementById('page-content');
+
+    var xhr;
     
     switch (page) {
       case 'Journeys':
@@ -49,10 +51,20 @@ function changeContent(page) {
             </form>';
             break;
                     
-      case 'Logout':
-        title.innerHTML = 'Logout';
-        content.innerHTML = '<p>This is the contact page.</p>';
-        break;
+            case 'Logout':
+      title.innerHTML = 'Logout';
+      // send an AJAX request to the server to end the session
+      xhr = new XMLHttpRequest(); // assign the value here
+      xhr.open('POST', 'logout.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // redirect the user to the login page after the session has been ended
+          window.location.href = 'Login.php';
+        }
+      };
+      xhr.send();
+      break;              
       default:
         title.innerHTML = 'Error';
         content.innerHTML = '<p>Page not found.</p>';
