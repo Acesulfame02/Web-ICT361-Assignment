@@ -16,7 +16,7 @@
             <div class="input-group">
                 <div class="input-field">
                     <i class="fa-solid fa-unlock-keyhole"></i>
-                    <input type="password" name="token" placeholder="Verification token" />
+                    <input type="text" name="token" placeholder="Verification token" />
                 </div>
                 <div class="btn-field">
                     <button type="submit" >Verify</button>

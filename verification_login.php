@@ -1,5 +1,8 @@
 <?php
 require_once 'includes/dbConnect.php';
+include_once 'vendor/autoload.php';
+use PHPMailer\PHPMailer\PHPMailer; 
+use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the verification token from the form input
@@ -36,12 +39,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $update_stmt = $conn->prepare('UPDATE users SET verify_token = :token, verify_time = DATE_ADD(NOW(), INTERVAL 30 MINUTE) WHERE username= :username');
             $update_stmt->execute(['token' => $new_token, 'username' => $user_id]);
             
-            // Redirect back to login form with new verification token
-            header('Location: verification_form.php?error=expired_token&new_token=' . $new_token);
+
+            // Send verification email to user
+            $mail = new PHPMailer(true); // Create new PHPMailer instance
+            try {
+                // Server settings
+                $mail->isSMTP(); // Send using SMTP
+                $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to use
+                $mail->SMTPAuth = true; // Enable SMTP authentication
+                $mail->Username = 'aaronmasembemujabikalibala@gmail.com'; // Your Gmail address
+                $mail->Password = 'atdzvrcamxnptwpd'; // Your Gmail password
+                $mail->SMTPSecure = 'tls'; // Enable TLS encryption
+                $mail->Port = 587; // TCP port to connect to
+
+                // Recipients
+                $mail->setFrom('aaronmasembemujabikalibala@gmail.com', 'Finness');
+                $mail->addAddress($email, $username); // Add a recipient
+
+                // Content
+                $mail->isHTML(true); // Set email format to HTML
+                $mail->Subject = 'Verify your account';
+                $mail->Body    = "Hi $username,<br><br>
+                                    Please use the following token to verify your account: <strong>$new_token</  strong>.<br><br> 
+                                    Thank you for registering with us!<br><br>
+                                    Best regards,<br>Team Example";
+
+                $mail->send();
+
+                header('Location: verification.php?error=expired_token');
+            
+            } catch (Exception $e) {
+                header("Location: verification.php?error=Verification+email+could+not+be+sent.");
+                exit();
+            }
             exit;
         } else {
             // Verification failed, redirect back to login form with error message
-            header('Location: verification_form.php?error=invalid_token');
+            header('Location: verification.php?error=invalid_token');
             exit;
         }
     }
