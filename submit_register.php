@@ -1,5 +1,8 @@
 <?php
 require_once 'includes/dbConnect.php';
+include_once 'vendor/autoload.php';
+use PHPMailer\PHPMailer\PHPMailer; 
+use PHPMailer\PHPMailer\Exception;
 
 // Validate form input
 if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['captcha'])) {
@@ -56,8 +59,39 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
         $stmt->bindParam(':verify_token', $verify_token);
         $stmt->bindParam(':verify_time', $verify_time);
         $stmt->execute();
+
+        // Send verification email to user
+        $mail = new PHPMailer(true); // Create new PHPMailer instance
+        try {
+            // Server settings
+            $mail->isSMTP(); // Send using SMTP
+            $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to use
+            $mail->SMTPAuth = true; // Enable SMTP authentication
+            $mail->Username = 'aaronmasembemujabikalibala@gmail.com'; // Your Gmail address
+            $mail->Password = 'atdzvrcamxnptwpd'; // Your Gmail password
+            $mail->SMTPSecure = 'tls'; // Enable TLS encryption
+            $mail->Port = 587; // TCP port to connect to
+
+            // Recipients
+            $mail->setFrom('aaronmasembemujabikalibala@gmail.com', 'Finness');
+            $mail->addAddress($email, $username); // Add a recipient
+
+            // Content
+            $mail->isHTML(true); // Set email format to HTML
+            $mail->Subject = 'Verify your account';
+            $mail->Body    = "Hi $username,<br><br>
+                                Please use the following token to verify your account: <strong>$verify_token</strong>.<br><br> 
+                                Thank you for registering with us!<br><br>
+                                Best regards,<br>Team Example";
+
+            $mail->send();
+            
+            header("Location: verification.php");
     
-        header("Location: verification1.php");
+        } catch (Exception $e) {
+            header("Location: Register.php?error=Verification+email+could+not+be+sent.");
+            exit();
+        }
     
     } catch(PDOException $e) {
         header("Location: Register.php?error=" . $e->getMessage());
