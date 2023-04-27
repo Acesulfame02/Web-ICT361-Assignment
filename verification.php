@@ -4,15 +4,26 @@
     include('includes/Nav-bar.php');
 ?>
 
-<div class="container mt-5">
-    <h1 class="text-center mb-5">Verification</h1>
-    <form action="" method="POST" class="text-center">
-      <div class="form-group">
-        <label for="token">Enter verification token:</label>
-        <input type="text" id="token" name="token"  required>
-      </div>
-      <button type="submit" name="submit">Submit</button>
-    </form>
+<div class="login-info">
+    <div class="login-form">
+        <h2>Account Verification</h2>
+        <?php
+            if (isset($_GET['error'])) {
+                echo '<p style="color:red;">Error: ' . $_GET['error'] . '</p>';
+            }
+        ?>
+        <form action="verification_login.php" method="POST">
+            <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-unlock-keyhole"></i>
+                    <input type="password" name="token" placeholder="Verification token" />
+                </div>
+                <div class="btn-field">
+                    <button type="submit" >Verify</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 
