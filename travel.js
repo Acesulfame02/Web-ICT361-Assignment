@@ -5,10 +5,62 @@ function changeContent(page) {
     var xhr;
     
     switch (page) {
-      case 'Journeys':
+        case 'Journeys':
         title.innerHTML = 'Journeys';
-        content.innerHTML = '<p>This is the home page.</p>';
+        // check if the form already exists
+        var form = document.getElementById('journey-form');
+        if (!form) {
+          // create the form if it doesn't exist
+          content.innerHTML = '<form id="journey-form" action="packages_submit.php" method="post" enctype="multipart/form-data"> \
+            <label for="package_name">Package Name:</label> \
+            <select name="package_name" id="package-name" class="input-field"> \
+              <option value="">Select a package</option> \
+            </select> \
+            <br> \
+            <label for="rating">Rating:</label> \
+            <select name="rating" id="rating" class="input-field"> \
+              <option value="">Select a rating</option> \
+              <option value="1">1</option> \
+              <option value="2">2</option> \
+              <option value="3">3</option> \
+              <option value="4">4</option> \
+              <option value="5">5</option> \
+            </select> \
+            <br> \
+            <label for="comment">Comment:</label> \
+            <textarea name="comment" id="comment" rows="4" cols="50" class="input-field"></textarea> \
+            <br> \
+            <label for="image">Image:</label> \
+            <input type="file" name="image" id="image" class="input-field" accept="image/*"> \
+            <br> \
+            <div class="btn-field"> \
+              <button type="submit">Submit</button> \
+            </div> \
+          </form>';
+        
+          // make AJAX request to get package data
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', 'get_package_data.php');
+          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.onload = function() {
+            if (xhr.status === 200) {
+              var packageData = JSON.parse(xhr.responseText);
+              // update select options with package data
+              var packageSelect = document.getElementById('package-name');
+              packageData.forEach(function(package) {
+                var option = document.createElement('option');
+                option.value = package.package_name;
+                option.text = package.package_name;
+                packageSelect.add(option);
+              });
+            } else {
+              console.log('Error getting package data');
+            }
+          };
+          xhr.send();
+        }
         break;
+   
         case 'Profile':
             title.innerHTML = 'Profile';
             // make AJAX request to get user data
