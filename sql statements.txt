@@ -18,6 +18,16 @@ create table package_ratings(
     user_comment text not null default 'none'
 );
 
+create table users(
+    username varchar(255) not null primary key default 'none' comment 'Username of Customer',
+    email varchar(255) not null default '@gmail.com' comment 'Users Email',
+    password varchar(255) not null default 'none' comment 'Users password',
+    verify_token varchar(6) not null default '123456' comment 'Users token',
+    verify_time datetime not null default current_timestamp comment 'Users expiry token time',
+    image_url varchar(255) not null default 'none' comment 'Users profile picture',
+    is_active tinyint(1) not null default '0' comment 'Verification Status of the User'
+);
+
 describe packages;
 
 //please change entered values to enable package proper description.
