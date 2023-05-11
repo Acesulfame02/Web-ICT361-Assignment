@@ -1,5 +1,5 @@
 <header>
-  <a href="Home_Page.php" class="logo">Finess</a>
+  <a href="Home_Page.php" class="logo">Finesse</a>
 
   <ul class="navlist">
     <li><a href="Home_Page.php">Home</a></li>

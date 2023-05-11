@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>
-            <?php if(isset($page_title)){ echo "$page_title"; } ?> Finness
+            <?php if(isset($page_title)){ echo "$page_title"; } ?> Finesse
         </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

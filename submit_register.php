@@ -73,7 +73,7 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
             $mail->Port = 587; // TCP port to connect to
 
             // Recipients
-            $mail->setFrom('aaronmasembemujabikalibala@gmail.com', 'Finness');
+            $mail->setFrom('aaronmasembemujabikalibala@gmail.com', 'Finesse');
             $mail->addAddress($email, $username); // Add a recipient
 
             // Content
